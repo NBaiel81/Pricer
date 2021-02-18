@@ -3,5 +3,6 @@ from django.contrib.auth import views as auth_views
 from .views import *
 urlpatterns=[
     path('',homepage,name='home'),
+    path('product_list/<int:firm_id>/',product_list,name='product_list')
 
 ]
