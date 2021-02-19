@@ -1,3 +1,7 @@
+{% extends 'products/base.html' %}
+{% block content %}
 {% for i in firms %}
-    <a href="{% url 'product_list'  %}"><img src="{{ i.logotype.url }}" width="20" height="20"></a>
+    <a href="{% url 'product_list' i.id  %}"><img src="{{ i.logotype.url }}" width="20" height="20"></a>
 {% endfor %}
+{% endblock %}
+

@@ -1,3 +1,62 @@
+{% extends 'products/base.html' %}
+{% block content %}
 {% for i in products %}
-    {{i.name}}
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+<div class="container mb-4">
+    <div class="row">
+        <div class="col-12">
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col"> </th>
+                            <th scope="col">Product</th>
+                            <th scope="col">Firm</th>
+                            <th scope="col" class="text-center">Quantity</th>
+                            <th scope="col" class="text-right">Price</th>
+                            <th> </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><img src="{{ i.image.url }}" width="20" height="20"> </td>
+                            <td><a href="{% url 'product_models' i.id %}">{{i.name}}</a></td>
+                            <td>{{i.firm}}</td>
+                            <td class="text-right">{{i.quantity}}</td>
+                            <td class="text-right">{{i.price}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
 {% endfor %}
+{% for i in products %}
+<div class="container pb-5 mb-sm-1">
+    <!-- Categories grid-->
+    <div class="row">
+
+        <div class="col-md-4 col-sm-6">
+            <div class="card border-0 mb-grid-gutter">
+                <a class="card-img-tiles" href="shop-style1-ls.html">
+                    <div class="main-img"><img src="{{ i.image.url }}" alt="Pizza" width="350" height="326"></div>
+                  </a>
+                <div class="card-body border mt-n1 py-4 text-center">
+                    <h2 class="h5 mb-1">{{i.name}}</h2>
+                    <span class="d-block mb-3 font-size-xs text-muted">{{i.firm}}</span>
+                    <a class="btn btn-pill btn-outline-primary btn-sm" href="{% url 'product_models' i.id %}">PRICES</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{%endfor%}
+{% endblock %}
