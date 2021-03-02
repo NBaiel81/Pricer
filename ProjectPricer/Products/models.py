@@ -10,7 +10,7 @@ class ProductModel(models.Model):
 class Firm(models.Model):
     name = models.CharField(max_length=40, verbose_name='Название', unique=True)
     description = models.TextField(blank=True, null=True, verbose_name='Описание')
-    logotype = models.ImageField(blank=True, null=True, verbose_name='Логотип', default='pricer_default.jpg')
+    logotype = models.ImageField(blank=True, null=True, verbose_name='Логотип', default='pegatec.jpg')
     def __str__(self):
         return self.name
 class Product(models.Model):
@@ -35,6 +35,7 @@ class Footer(models.Model):
     logotype = models.ImageField(blank=True, null=True, verbose_name='Картинки', default='pricer_default.jpg')
     def __str__(self):
         return self.name
+
 
 
 
